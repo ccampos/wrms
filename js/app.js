@@ -9,10 +9,12 @@ define([
 			// drawing code here
 			$('canvas#wrms').css('background-color', '#ccc');
 			ctx.fillStyle = 'rgb(200, 0, 0)';
-			ctx.fillRect(10, 10, 55, 50);
+			ctx.fillRect(130, 50, 70, 70);
 
 			ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-			ctx.fillRect(30, 30, 55, 50);
+			ctx.fillRect(170, 90, 70, 70);
+
+			ctx.clearRect(200, 120, 80, 80);
 
 		} else {
 			// canvas-unsupported code here
