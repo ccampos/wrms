@@ -46,6 +46,9 @@ define([
 			ctx.fill();
 
 			// create arc
+			ctx.moveTo(320, 74);
+			ctx.arc(320, 74, 50, toRadians(0), toRadians(-270), true);
+			ctx.stroke();
 
 
 		} else {
