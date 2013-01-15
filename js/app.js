@@ -81,17 +81,18 @@ define([
 		*/
 		function animateWormHoriz(context, startX, endX, y, time) {
 			var i = startX,
-				intervalId = setInterval(drawLine, time);
+				intervalId = setInterval(drawLine(), time);
 
 			function drawLine() {
 				context.moveTo(startX, y);
-				context.lineTo(i, y);
 
 				// once i exceeds endX, clear interval
 				if (i > endX) {
 					clearInterval(intervalId);
 				};
 				i += 1;
+
+				context.lineTo(i, y);
 			};
 		};
 
