@@ -1,6 +1,7 @@
 define([
-	'jquery'
-], function($) {
+	'jquery',
+	'util/timed'
+], function($, timed) {
 	var initialize = function() {
 		var canvasPractice = $('canvas#practice')[0];
 
@@ -66,35 +67,17 @@ define([
 			// set context background color
 			$('canvas#wrms').css('background-color', '#ccc');
 
-			// use animateWormHoriz function()
-			animateWormHoriz(ctx, 20, 300, 122, 34);
+			// timed js
+			ctx.fillStyle = 'rgba(0, 130, 190, 0.9)';
+			ctx.moveTo(20, 100);
+			timed.animLinWorm(ctx, 20, 100, 350, 90, 2);
+
+			ctx.moveTo(50, 150);
+			timed.animLinWorm(ctx, 50, 150, 180, 87, 1);
 		} else {
 			// canvas-unsupported code here
 			$('canvas#wrms').html('canvas-unsupported');		
 		}
-
-		/**
-		* Animate worm horizontally
-		*
-		* @method toRadians
-		* @return {Number} radians
-		*/
-		function animateWormHoriz(context, startX, endX, y, time) {
-			var i = startX,
-				intervalId = setInterval(drawLine(), time);
-
-			function drawLine() {
-				context.moveTo(startX, y);
-
-				// once i exceeds endX, clear interval
-				if (i > endX) {
-					clearInterval(intervalId);
-				};
-				i += 1;
-
-				context.lineTo(i, y);
-			};
-		};
 
 		/**
 		* Returns radians
