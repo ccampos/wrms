@@ -2,7 +2,8 @@
 require.config({
 	paths: {
 		jquery: 'libs/jquery/jquery'
-	}
+	},
+	urlArgs: "bust=" + (new Date()).getTime()
 });
 
 require([
